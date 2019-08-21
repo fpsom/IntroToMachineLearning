@@ -1,4 +1,4 @@
-## Overview of the workshop
+## Overview of the Material for the [BC]2 2019 workshop
 
 **Room**: Regenzzimmer 111
 
