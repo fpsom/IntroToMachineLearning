@@ -6,11 +6,9 @@
     <img style="margin-right:50px" alt="ELIXIR-GR" src="static/images/INAB-logo.png" width="120"/>
   </a>
   <a href="https://www.h3abionet.org/" title="H3ABioNet">
-    <img style="margin-right:50px" alt="Funders" src="static/images/H3ABionetLogo.png" width="400"/>
+    <img style="margin-right:50px" alt="Funders" src="static/images/H3ABionetLogo.png" width="120"/>
   </a>
 </div>  
-
-![Logos]("_static/images/_static/images/ELIXIR-H3ABioNet-INAB-Logos.png")
 
 ## Overview of the Material for the [BC]2 2019 workshop
 
