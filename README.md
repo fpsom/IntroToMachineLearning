@@ -1,4 +1,4 @@
-## Introduction to Machine Learning: opportunities for advancing omics data analysis
+## Overview of the workshop
 
 **Room**: Regenzzimmer 111
 
