@@ -3,6 +3,7 @@
 **Room**: Regenzzimmer 111
 
 ### Organisers and tutors
+
 [**Amel Ghouila**](https://amelgh.github.io/about/), Institut Pasteur de Tunis, H3ABioNet
 
 [**Fotis Psomopoulos**](https://fpsom.github.io/), INAB|CERTH, ELIXIR-GR
@@ -33,10 +34,6 @@ This introductory tutorial is aimed towards bioinformaticians (graduate students
 _Maximum participants_: 30
 
 ### Schedule
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
 
 | Time  |  Details |
 |--------|----------|
