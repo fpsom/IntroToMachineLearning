@@ -58,6 +58,21 @@ _Maximum participants_: 30
 | 15:00 - 16:30	| **Supervised Learning I: classification**. How could supervised learning be used to analyze omics data. **Supervised Learning II: regression**. What if the target variable is numerical rather than categorical?|
 | 16:30	| Closing, discussion and resource sharing|
 
+## Sources / References
+
+The material in the workshop has been based on the following resources:
+
+1. [ELIXIR CODATA Advanced Bioinformatics Workshop](https://codata-rda-advanced-bioinformatics-2019.readthedocs.io)
+1. [Machine Learning in R](https://hugobowne.github.io/machine-learning-r/), by [Hugo Bowne-Anderson](https://twitter.com/hugobowne)
+2. [Linear models in R](https://monashbioinformaticsplatform.github.io/r-linear/topics/linear_models.html), by the [Monash Bioinformatics Platform](https://www.monash.edu/researchinfrastructure/bioinformatics)
+
+Relevant literature includes:
+
+1. [Pattern Recognition and Machine Learning](http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf) by Christopher M. Bishop.
+2. [Statistics versus machine learning](https://www.nature.com/articles/nmeth.4642)
+3. [Machine learning and systems genomics approaches for multi-omics data](https://biomarkerres.biomedcentral.com/articles/10.1186/s40364-017-0082-y)
+
+
 ## License
 
 [![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
