@@ -1,4 +1,4 @@
-![Logos]("_static/images/ELIXIR-H3ABioNet-INAB-Logos.png")
+![Logos](_static/images/ELIXIR-H3ABioNet-INAB-Logos.png)
 
 ## Overview of the Material for the [BC]2 2019 workshop
 
