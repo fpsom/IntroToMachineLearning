@@ -49,7 +49,7 @@ _Maximum participants_: 30
 
 | Time  |  Details |
 |--------|----------|
-| 09:00 - 09:15	| **Tutorial introduction**. Get to know each other. Setup |
+| 09:00 - 09:15	| **Tutorial introduction**. Get to know each other. [Setup](episodes/setup.md) |
 | Part I: Background | |
 | 09:15 - 10:45	| **Introduction to ML / DM**. Data Mining. Machine Learning basic concepts.  Taxonomy of ML and examples of algorithms. Deep learning overview.
 | 11:00 - 12:30	| **Applications of ML in Bioinformatics**. Examples of different ML/DM techniques that can be applied to different NGS data analysis pipelines. How to choose the right ML technique? |
