@@ -1,4 +1,4 @@
-[Go to main page](../../README.md)
+[Go to main page](./../README.md)
 
 ## Download R and R Studio
 1. Go to the [CRAN website](https://cran.r-project.org) and follow the instructions to download and install R.
