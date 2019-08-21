@@ -51,11 +51,11 @@ _Maximum participants_: 30
 |--------|----------|
 | 09:00 - 09:15	| **Tutorial introduction**. Get to know each other. [Setup](episodes/setup.md) |
 | Part I: Background | |
-| 09:15 - 10:45	| **Introduction to ML / DM**. Data Mining. Machine Learning basic concepts.  Taxonomy of ML and examples of algorithms. Deep learning overview.
-| 11:00 - 12:30	| **Applications of ML in Bioinformatics**. Examples of different ML/DM techniques that can be applied to different NGS data analysis pipelines. How to choose the right ML technique? |
+| 09:15 - 10:45	| [**Introduction to ML / DM**](episodes/01-intro.md). Data Mining. Machine Learning basic concepts.  Taxonomy of ML and examples of algorithms. Deep learning overview.
+| 11:00 - 12:30	| [**Applications of ML in Bioinformatics**](episodes/02-bioinformatics-and-ml.md). Examples of different ML/DM techniques that can be applied to different NGS data analysis pipelines. How to choose the right ML technique? |
 | Part II: Hands-on | |
-| 13:15 - 14:45 | **Loading and exploring omics data**. What is Exploratory Data Analysis (EDA) and why is it useful? Unsupervised Learning.  How could unsupervised learning be used to analyze omics data? |
-| 15:00 - 16:30	| **Supervised Learning I: classification**. How could supervised learning be used to analyze omics data. **Supervised Learning II: regression**. What if the target variable is numerical rather than categorical?|
+| 13:15 - 14:45 | [**Loading and exploring omics data**](episodes/03-eda-unsupervised-learning.md). What is Exploratory Data Analysis (EDA) and why is it useful? Unsupervised Learning.  How could unsupervised learning be used to analyze omics data? |
+| 15:00 - 16:30	| [**Supervised Learning I: classification**](episodes/04-supervised-learning.md). How could supervised learning be used to analyze omics data. **Supervised Learning II: regression**. What if the target variable is numerical rather than categorical?|
 | 16:30	| Closing, discussion and resource sharing|
 
 ## Sources / References
