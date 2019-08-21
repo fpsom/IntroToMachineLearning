@@ -6,7 +6,7 @@
 
 [**Amel Ghouila**](https://amelgh.github.io/about/), Institut Pasteur de Tunis, H3ABioNet
 
-[**Fotis Psomopoulos**](https://fpsom.github.io/), INAB|CERTH, ELIXIR-GR
+[**Fotis Psomopoulos**](https://fpsom.github.io/), [INAB-CERTH](http://inab.certh.gr), ELIXIR-GR
 
 ### Overview
 Machine learning has emerged as a discipline that enables computers to assist humans in making sense of large and complex data sets. With the drop-in cost of sequencing technologies, large amounts of omics data are being generated and made accessible to researchers. Analysing these complex high-volume data is not trivial and the use of classical tools cannot explore their full potential. Machine learning can thus be very useful in mining large omics datasets to uncover new insights that can advance the field of medicine and improve health care.
