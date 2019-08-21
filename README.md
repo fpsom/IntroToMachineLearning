@@ -1,3 +1,5 @@
+![Logos]("_static/images/ELIXIR-H3ABioNet-INAB-Logos.png")
+
 ## Overview of the Material for the [BC]2 2019 workshop
 
 **Room**: Regenzzimmer 111
@@ -45,3 +47,13 @@ _Maximum participants_: 30
 | 13:15 - 14:45 | **Loading and exploring omics data**. What is Exploratory Data Analysis (EDA) and why is it useful? Unsupervised Learning.  How could unsupervised learning be used to analyze omics data? |
 | 15:00 - 16:30	| **Supervised Learning I: classification**. How could supervised learning be used to analyze omics data. **Supervised Learning II: regression**. What if the target variable is numerical rather than categorical?|
 | 16:30	| Closing, discussion and resource sharing|
+
+## License
+
+[![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+
+This material is made available under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0). Please see [LICENSE](LICENSE.md) for more details.
+
+## Citation
+
+_to be added_
