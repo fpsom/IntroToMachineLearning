@@ -57,7 +57,7 @@ breastCancerData$Diagnosis <- as.factor(breastCancerData$Diagnosis)
 
 Before thinking about modeling, have a look at your data. There is no point in throwing a 10000 layer convolutional neural network (whatever that means) at your data before you even know what you're dealing with.
 
-You’ll first remove the first column, which is the unique identifier of each row (_Question: **why?**_):
+You’ll first remove the first column, which is the unique identifier of each row (_Question: **Why?**_):
 
 ```r
 # Remove first column
@@ -104,17 +104,21 @@ Note that the features have widely varying centers and scales (means and standar
 The `preProcess` class can be used for many operations on predictors, including centering and scaling. The function `preProcess` estimates the required parameters for each operation and `predict.preProcess` is used to apply them to specific data sets. This function can also be interfaces when calling the `train` function.
 
 ```r
-library(GGally)
+library(caret)
 
 # Center & scale data
 ppv <- preProcess(breastCancerDataNoID, method = c("center", "scale"))
 breastCancerDataNoID_tr <- predict(ppv, breastCancerDataNoID)
+```
 
+Let's see what the impact of this process was by viewing the summary of the first 5 variables before and after the process:
+
+```r
 # Summarize first 5 columns of the original data
 breastCancerDataNoID[1:5] %>% summary()
 ```
 
-The output should look like this:
+The summary should look like this:
 
 ```r
 Diagnosis  Radius.Mean      Texture.Mean   Perimeter.Mean     Area.Mean     
@@ -126,13 +130,14 @@ M:212     1st Qu.:11.700   1st Qu.:16.17   1st Qu.: 75.17   1st Qu.: 420.3
           Max.   :28.110   Max.   :39.28   Max.   :188.50   Max.   :2501.0
 ```
 
+Let's check the summary of the re-centered and scaled data
 
 ```r
 # Summarize first 5 columns of the re-centered and scaled data
 breastCancerDataNoID_tr[1:5] %>% summary()
 ```
 
-The output should look like this:
+The summary now should look like this:
 
 ```r
 Diagnosis  Radius.Mean       Texture.Mean     Perimeter.Mean      Area.Mean      
@@ -143,6 +148,21 @@ M:212     1st Qu.:-0.6888   1st Qu.:-0.7253   1st Qu.:-0.6913   1st Qu.:-0.6666
           3rd Qu.: 0.4690   3rd Qu.: 0.5837   3rd Qu.: 0.4992   3rd Qu.: 0.3632  
           Max.   : 3.9678   Max.   : 4.6478   Max.   : 3.9726   Max.   : 5.2459  
 ```
+
+We can observe that the all variables in our new data have a mean of 0, while maintaining the same distribution of the values. However, this also means that the absolute values do not correspond to the "real", original data - just a representation of them.
+
+We can also check whether our plot has changed with the new data:
+
+```r
+library(GGally)
+
+ggpairs(breastCancerDataNoID_tr[1:5], aes(color=Diagnosis, alpha=0.4))
+```
+
+![ggpairs output of the first 5 variables of the recentered/rescaled data](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/ggpairs5variables_tr.png "ggpairs output of the first 5 variables of the recentered/rescaled data")
+
+_Question: **Do you see any differences?**_
+
 
 
 ### Unsupervised Learning.
