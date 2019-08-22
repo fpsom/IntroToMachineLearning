@@ -12,6 +12,10 @@
 
 ## Overview of the Material for the [BC]2 2019 workshop
 
+**When**: September 9th, 09:00 to 16:00
+
+**Where**: University of Basel, [Kollegienhaus building, Petersplatz 1](https://www.google.ch/maps/place/Petersplatz+1,+4051+Basel/@47.5584029,7.5825258,17.67z/data=!4m13!1m7!3m6!1s0x4791b9a96c44bba1:0xe0a7bc8b66787bdb!2sPetersplatz+1,+4051+Basel!3b1!8m2!3d47.5586129!4d7.5827926!3m4!1s0x4791b9a96c44bba1:0xe0a7bc8b66787bdb!8m2!3d47.5586129!4d7.5827926), CH-4001 Basel
+
 **Room**: Regenzzimmer 111
 
 ### Organisers and tutors
@@ -49,7 +53,7 @@ _Maximum participants_: 30
 
 | Time  |  Details |
 |--------|----------|
-| 09:00 - 09:15	| **Tutorial introduction**. Get to know each other. [Setup](episodes/setup.md) |
+| 09:00 - 09:15	| **Tutorial introduction**. <br /> Get to know each other. <br /> Setup <br /> [Link to material](episodes/setup.md) |
 | Part I: Background | |
 | 09:15 - 10:45	| [**Introduction to ML / DM**](episodes/01-intro.md). Data Mining. Machine Learning basic concepts.  Taxonomy of ML and examples of algorithms. Deep learning overview.
 | 11:00 - 12:30	| [**Applications of ML in Bioinformatics**](episodes/02-bioinformatics-and-ml.md). Examples of different ML/DM techniques that can be applied to different NGS data analysis pipelines. How to choose the right ML technique? |
@@ -63,7 +67,7 @@ _Maximum participants_: 30
 The material in the workshop has been based on the following resources:
 
 1. [ELIXIR CODATA Advanced Bioinformatics Workshop](https://codata-rda-advanced-bioinformatics-2019.readthedocs.io)
-1. [Machine Learning in R](https://hugobowne.github.io/machine-learning-r/), by [Hugo Bowne-Anderson](https://twitter.com/hugobowne)
+1. [Machine Learning in R](https://hugobowne.github.io/machine-learning-r/), by [Hugo Bowne-Anderson](https://twitter.com/hugobowne) and [Jorge Perez de Acha Chavez](https://twitter.com/jorge_pda)
 2. [Linear models in R](https://monashbioinformaticsplatform.github.io/r-linear/topics/linear_models.html), by the [Monash Bioinformatics Platform](https://www.monash.edu/researchinfrastructure/bioinformatics)
 
 Relevant literature includes:
