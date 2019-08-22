@@ -9,7 +9,9 @@ The data we are going to be using for this workshop are from the following two s
 
 We will first load up the UCI dataset; the dataset itself does not contain column names, but we've created a second file with only the column names that we will use.
 
-```
+```r
+library(tidyverse) # working with data frames, plotting
+
 breastCancerData <- read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data",
                col_names = FALSE)
 
@@ -24,7 +26,7 @@ breastCancerData %>% head()
 
 If all goes well, we can see that our dataset contains 569 observations across 32 variables. This is what the first 6 lines look like:
 
-```
+```r
 # A tibble: 6 x 32
       ID Diagnosis Radius.Mean Texture.Mean Perimeter.Mean Area.Mean Smoothness.Mean
    <dbl> <chr>           <dbl>        <dbl>          <dbl>     <dbl>           <dbl>
@@ -46,7 +48,7 @@ If all goes well, we can see that our dataset contains 569 observations across 3
 
 We will also make our `Diagnosis` column a factor (_Question: **What is a factor?**_):
 
-```
+```r
 # Make Diagnosis a factor
 breastCancerData$Diagnosis <- as.factor(breastCancerData$Diagnosis)
 ```
@@ -57,7 +59,7 @@ Before thinking about modeling, have a look at your data. There is no point in t
 
 You’ll first remove the first column, which is the unique identifier of each row (_Question: **why?**_):
 
-```
+```r
 # Remove first column
 breastCancerDataNoID <- breastCancerData[2:ncol(breastCancerData)]
 
@@ -67,7 +69,7 @@ breastCancerDataNoID %>% head()
 
 The output should like like this:
 
-```
+```r
 # A tibble: 6 x 31
   Diagnosis Radius.Mean Texture.Mean Perimeter.Mean Area.Mean Smoothness.Mean
   <fct>           <dbl>        <dbl>          <dbl>     <dbl>           <dbl>
@@ -89,11 +91,59 @@ The output should like like this:
 
 We already have a lot of variables so, for the interest of time, we will focus only on the first five. Let's have a look at a plot:
 
-```
+```r
+library(GGally)
+
 ggpairs(breastCancerDataNoID[1:5], aes(color=Diagnosis, alpha=0.4))
 ```
 
 ![ggpairs output of the first 5 variables](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/ggpairs5variables.png "ggpairs output of the first 5 variables")
+
+Note that the features have widely varying centers and scales (means and standard deviations) so we'll want to center and scale them in some situations. You’ll use the `caret` package for this, and specifically, the `preProcess` function.
+
+The `preProcess` class can be used for many operations on predictors, including centering and scaling. The function `preProcess` estimates the required parameters for each operation and `predict.preProcess` is used to apply them to specific data sets. This function can also be interfaces when calling the `train` function.
+
+```r
+library(GGally)
+
+# Center & scale data
+ppv <- preProcess(breastCancerDataNoID, method = c("center", "scale"))
+breastCancerDataNoID_tr <- predict(ppv, breastCancerDataNoID)
+
+# Summarize first 5 columns of the original data
+breastCancerDataNoID[1:5] %>% summary()
+```
+
+The output should look like this:
+
+```r
+Diagnosis  Radius.Mean      Texture.Mean   Perimeter.Mean     Area.Mean     
+B:357     Min.   : 6.981   Min.   : 9.71   Min.   : 43.79   Min.   : 143.5  
+M:212     1st Qu.:11.700   1st Qu.:16.17   1st Qu.: 75.17   1st Qu.: 420.3  
+          Median :13.370   Median :18.84   Median : 86.24   Median : 551.1  
+          Mean   :14.127   Mean   :19.29   Mean   : 91.97   Mean   : 654.9  
+          3rd Qu.:15.780   3rd Qu.:21.80   3rd Qu.:104.10   3rd Qu.: 782.7  
+          Max.   :28.110   Max.   :39.28   Max.   :188.50   Max.   :2501.0
+```
+
+
+```r
+# Summarize first 5 columns of the re-centered and scaled data
+breastCancerDataNoID_tr[1:5] %>% summary()
+```
+
+The output should look like this:
+
+```r
+Diagnosis  Radius.Mean       Texture.Mean     Perimeter.Mean      Area.Mean      
+B:357     Min.   :-2.0279   Min.   :-2.2273   Min.   :-1.9828   Min.   :-1.4532  
+M:212     1st Qu.:-0.6888   1st Qu.:-0.7253   1st Qu.:-0.6913   1st Qu.:-0.6666  
+          Median :-0.2149   Median :-0.1045   Median :-0.2358   Median :-0.2949  
+          Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000  
+          3rd Qu.: 0.4690   3rd Qu.: 0.5837   3rd Qu.: 0.4992   3rd Qu.: 0.3632  
+          Max.   : 3.9678   Max.   : 4.6478   Max.   : 3.9726   Max.   : 5.2459  
+```
+
 
 ### Unsupervised Learning.
 
