@@ -9,7 +9,7 @@ The data we are going to be using for this workshop are from the following two s
 
 We will first load up the UCI dataset; the dataset itself does not contain column names, but we've created a second file with only the column names that we will use.
 
-```r
+```
 breastCancerData <- read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data",
                col_names = FALSE)
 
@@ -24,7 +24,7 @@ breastCancerData %>% head()
 
 If all goes well, we can see that our dataset contains 569 observations across 32 variables. This is what the first 6 lines look like:
 
-```r
+```
 # A tibble: 6 x 32
       ID Diagnosis Radius.Mean Texture.Mean Perimeter.Mean Area.Mean Smoothness.Mean
    <dbl> <chr>           <dbl>        <dbl>          <dbl>     <dbl>           <dbl>
@@ -46,7 +46,7 @@ If all goes well, we can see that our dataset contains 569 observations across 3
 
 We will also make our `Diagnosis` column a factor (_Question: **What is a factor?**_):
 
-```r
+```
 # Make Diagnosis a factor
 breastCancerData$Diagnosis <- as.factor(breastCancerData$Diagnosis)
 ```
@@ -57,7 +57,7 @@ Before thinking about modeling, have a look at your data. There is no point in t
 
 You’ll first remove the first column, which is the unique identifier of each row (_Question: **why?**_):
 
-```r
+```
 # Remove first column
 breastCancerDataNoID <- breastCancerData[2:ncol(breastCancerData)]
 
@@ -67,7 +67,7 @@ breastCancerDataNoID %>% head()
 
 The output should like like this:
 
-```r
+```
 # A tibble: 6 x 31
   Diagnosis Radius.Mean Texture.Mean Perimeter.Mean Area.Mean Smoothness.Mean
   <fct>           <dbl>        <dbl>          <dbl>     <dbl>           <dbl>
@@ -89,7 +89,7 @@ The output should like like this:
 
 We already have a lot of variables so, for the interest of time, we will focus only on the first five. Let's have a look at a plot:
 
-```r
+```
 ggpairs(breastCancerDataNoID[1:5], aes(color=Diagnosis, alpha=0.4))
 ```
 
