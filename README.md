@@ -53,13 +53,13 @@ _Maximum participants_: 30
 
 | Time  |  Details |
 |--------|----------|
-| 09:00 - 09:15	| **Tutorial introduction**. <br /> Get to know each other. <br /> Setup <br /> [Link to material](episodes/setup.md) |
+| 09:00 - 09:15	| **Tutorial introduction**. <br /> <br />Get to know each other. <br /> Setup <br /> [_Link to material_](episodes/setup.md) |
 | Part I: Background | |
-| 09:15 - 10:45	| [**Introduction to ML / DM**](episodes/01-intro.md). Data Mining. Machine Learning basic concepts.  Taxonomy of ML and examples of algorithms. Deep learning overview.
-| 11:00 - 12:30	| [**Applications of ML in Bioinformatics**](episodes/02-bioinformatics-and-ml.md). Examples of different ML/DM techniques that can be applied to different NGS data analysis pipelines. How to choose the right ML technique? |
+| 09:15 - 10:45	| **Introduction to ML / DM**. <br /><br /> Data Mining.<br /> Machine Learning basic concepts.<br />  Taxonomy of ML and examples of algorithms. <br /> Deep learning overview. <br /> [_Link to material_](episodes/01-intro.md)
+| 11:00 - 12:30	| **Applications of ML in Bioinformatics**.<br /><br /> Examples of different ML/DM techniques that can be applied to different NGS data analysis pipelines. <br /> How to choose the right ML technique? <br /> [_Link to material_](episodes/02-bioinformatics-and-ml.md) |
 | Part II: Hands-on | |
-| 13:15 - 14:45 | [**Loading and exploring omics data**](episodes/03-eda-unsupervised-learning.md). What is Exploratory Data Analysis (EDA) and why is it useful? Unsupervised Learning.  How could unsupervised learning be used to analyze omics data? |
-| 15:00 - 16:30	| [**Supervised Learning I: classification**](episodes/04-supervised-learning.md). How could supervised learning be used to analyze omics data. **Supervised Learning II: regression**. What if the target variable is numerical rather than categorical?|
+| 13:15 - 14:45 | **Loading and exploring omics data**.<br /><br /> What is Exploratory Data Analysis (EDA) and why is it useful?<br /> Unsupervised Learning. <br /> How could unsupervised learning be used to analyze omics data? <br /> [_Link to material_](episodes/03-eda-unsupervised-learning.md) |
+| 15:00 - 16:30	| **Supervised Learning** <br /><br /> **_Classification_**. <br /> How could supervised learning be used to analyze omics data. <br /> **_Regression_**. <br /> What if the target variable is numerical rather than categorical? <br /> [_Link to material_](episodes/04-supervised-learning.md) |
 | 16:30	| Closing, discussion and resource sharing|
 
 ## Sources / References
