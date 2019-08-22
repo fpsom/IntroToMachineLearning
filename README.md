@@ -20,7 +20,7 @@
 
 ### Organisers and tutors
 
-[**Amel Ghouila**](https://amelgh.github.io/about/), Institut Pasteur de Tunis, H3ABioNet
+[**Amel Ghouila**](https://amelgh.github.io/), [H3ABioNet](https://www.h3abionet.org/)
 
 [**Fotis Psomopoulos**](https://fpsom.github.io/), [INAB-CERTH](http://inab.certh.gr), ELIXIR-GR
 
