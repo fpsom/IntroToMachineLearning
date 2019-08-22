@@ -93,7 +93,7 @@ We already have a lot of variables so, for the interest of time, we will focus o
 ggpairs(breastCancerDataNoID[1:5], aes(color=Diagnosis, alpha=0.4))
 ```
 
-![ggpairs output of the first 5 variables](static/images/ggpairs5variables.png "ggpairs output of the first 5 variables")
+![ggpairs output of the first 5 variables](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/ggpairs5variables.png "ggpairs output of the first 5 variables")
 
 ### Unsupervised Learning.
 
