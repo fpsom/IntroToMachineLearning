@@ -274,7 +274,7 @@ ggbiplot(ppv_pca, choices=c(1, 2),
   theme(legend.position = "bottom")
 ```
 
-![Visualization of the first two PCs on the UCI Breast Cancer dataset](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/pc12Visualization_all.png "Visualization of the first two PCs on the UCI Breast Cancer dataset")
+![Visualization of the first two PCs on the UCI Breast Cancer dataset](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/pc12Visualization_Full.png "Visualization of the first two PCs on the UCI Breast Cancer dataset")
 
 | **Exercise**  |   |
 |--------|----------|
