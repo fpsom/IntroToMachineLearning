@@ -8,8 +8,9 @@
 Open RStudio and install the following packages.
 
 ```{r}
-# Run this cell to install & load the required packages
+## To install needed CRAN packages:
 install.packages("tidyverse")
+install.packages("multcomp")
 install.packages("kernlab")
 install.packages("ddalpha")
 install.packages("caret")
@@ -17,17 +18,32 @@ install.packages("GGally")
 install.packages("gmodels")
 install.packages("glmnet", repos = "http://cran.us.r-project.org")
 install.packages("e1071")
-```
+install.packages("MASS")
+install.packages("splines")
+install.packages("multcomp")
 
+## To install needed Bioconductor packages:
+source("https://bioconductor.org/biocLite.R")
+BiocManager::install(c("limma", "edgeR"))
+
+library(devtools)
+install_github("vqv/ggbiplot")
+```
 
 Load them to make sure they were successfully installed.
 ```
 # Load packages
-library(tidyverse)
+library(tidyverse) # working with data frames, plotting
 library(kernlab)
 library(ddalpha)
 library(caret)
 library(GGally)
 library(gmodels)
 library(glmnet)
+library(MASS)       # ginv -- coefficient estimation
+library(splines)    # ns, bs -- spline curves
+library(multcomp)   # glht -- linear hypotheses
+library(edgeR)      # cpm, etc -- RNA-Seq normalization
+library(limma)      # lmFit, etc -- fitting many models
+library(ggbiplot)
 ```
