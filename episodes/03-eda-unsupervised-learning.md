@@ -268,7 +268,7 @@ ggbiplot(ppv_pca, choices=c(1, 2),
          ellipse=TRUE,
          groups = breastCancerData$Diagnosis,
          obs.scale = 1,
-         var.axes=FALSE, var.scale = 1) +
+         var.axes=TRUE, var.scale = 1) +
   ggtitle("PCA of Breast Cancer Dataset")+
   theme_minimal()+
   theme(legend.position = "bottom")
@@ -276,8 +276,10 @@ ggbiplot(ppv_pca, choices=c(1, 2),
 
 ![Visualization of the first two PCs on the UCI Breast Cancer dataset](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/pc12Visualization_all.png "Visualization of the first two PCs on the UCI Breast Cancer dataset")
 
-_Question: **Do you see any differences?**_
-
+| **Exercise**  |   |
+|--------|----------|
+| 1 | Try changing the parameters of the plot. For example, check the `choices` and the `var.scale`. Is there an impact? What does this mean?|
+| 2 | We have been using the entire table of data. What if we restrict our analysis on the `mean` values (i.e. columns 3-12)? Is there an impact?|
 
 
 ### How could unsupervised learning be used to analyze omics data?
