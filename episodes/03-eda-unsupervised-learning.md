@@ -291,8 +291,9 @@ Broadly speaking there are two ways of clustering data points based on the algor
 - **Agglomerative**: An agglomerative approach begins with each observation in a distinct (singleton) cluster, and successively merges clusters together until a stopping criterion is satisfied.
 - **Divisive**: A divisive method begins with all patterns in a single cluster and performs splitting until a stopping criterion is met.
 
-
 Essentially, this is the task of grouping your data points, based on something about them, such as closeness in space. Clustering is more of a tool to help you explore a dataset, and should not always be used as an automatic method to classify data. Hence, you may not always deploy a clustering algorithm for real-world production scenario. They are often too unreliable, and a single clustering alone will not be able to give you all the information you can extract from a dataset.
+
+#### K-Means
 
 What we are going to do is group the tumor data points into two clusters using an algorithm called `k-means`, which aims to cluster the data in order to minimize the variances of the clusters. The basic idea behind k-means clustering consists of defining clusters so that the total intra-cluster variation (known as total within-cluster variation) is minimized. There are several k-means algorithms available. However, the standard algorithm defines the total within-cluster variation as the sum of squared distances Euclidean distances between items and the corresponding centroid:
 
@@ -376,23 +377,23 @@ Cell Contents
 Total Observations in Table:  569
 
 
-                        | km.out$cluster
+                           | km.out$cluster
 breastCancerData$Diagnosis |         1 |         2 | Row Total |
 ---------------------------|-----------|-----------|-----------|
-                      B |       356 |         1 |       357 |
-                        |    23.988 |    80.204 |           |
-                        |     0.997 |     0.003 |     0.627 |
-                        |     0.813 |     0.008 |           |
-                        |     0.626 |     0.002 |           |
+                         B |       356 |         1 |       357 |
+                           |    23.988 |    80.204 |           |
+                           |     0.997 |     0.003 |     0.627 |
+                           |     0.813 |     0.008 |           |
+                           |     0.626 |     0.002 |           |
 ---------------------------|-----------|-----------|-----------|
-                      M |        82 |       130 |       212 |
-                        |    40.395 |   135.060 |           |
-                        |     0.387 |     0.613 |     0.373 |
-                        |     0.187 |     0.992 |           |
-                        |     0.144 |     0.228 |           |
+                         M |        82 |       130 |       212 |
+                           |    40.395 |   135.060 |           |
+                           |     0.387 |     0.613 |     0.373 |
+                           |     0.187 |     0.992 |           |
+                           |     0.144 |     0.228 |           |
 ---------------------------|-----------|-----------|-----------|
-           Column Total |       438 |       131 |       569 |
-                        |     0.770 |     0.230 |           |
+              Column Total |       438 |       131 |       569 |
+                           |     0.770 |     0.230 |           |
 ---------------------------|-----------|-----------|-----------|
 ```
 
@@ -455,3 +456,99 @@ From the graph, you can see the optimal `k` is around 10, where the curve is sta
 |--------|----------|
 | 1 | Try re-running the clustering step with the new k. Is there a significant difference? |
 | 2 | Try to think of alternative metrics that could be used as a "distance" measure, instead of the default "Euclidean". Do you think there might be an optimal for our case?|
+
+#### Hierarchical clustering
+
+k-means clustering requires us to specify the number of clusters, and finding the optimal number of clusters can often be hard. Hierarchical clustering is an alternative approach which builds a hierarchy from the bottom-up, and doesn’t require us to specify the number of clusters beforehand. The algorithm works as follows:
+
+- Put each data point in its own cluster.
+- Identify the closest two clusters and combine them into one cluster.
+- Repeat the above step till all the data points are in a single cluster.
+
+Once this is done, it is usually represented by a dendrogram like structure. There are a few ways to determine how close two clusters are:
+
+1. **Complete linkage clustering**: Find the maximum possible distance between points belonging to two different clusters.
+2. **Single linkage clustering**: Find the minimum possible distance between points belonging to two different clusters.
+3. **Mean linkage clustering**: Find all possible pairwise distances for points belonging to two different clusters and then calculate the average.
+4. **Centroid linkage clustering**: Find the centroid of each cluster and calculate the distance between centroids of two clusters.
+
+We will be applying Hierarchical clustering to our dataset, and see what the result might be. Remember that our dataset has some columns with nominal (categorical) values (columns `ID` and `Diagnosis`), so we will need to make sure we only use the columns with numerical values. There are no missing values in this dataset that we need to clean before clustering. But the scales of the features are different and we need to normalize it.
+
+```r
+breastCancerDataScaled <- as.data.frame(scale(breastCancerData[3:ncol(breastCancerData)]))
+summary(breastCancerDataScaled)
+```
+
+We can now proceed with creating the distance matrix:
+
+```r
+dist_mat <- dist(breastCancerDataScaled, method = 'euclidean')
+```
+
+There are several options for `method`: `euclidean`, `maximum`, `manhattan`, `canberra`, `binary` or `minkowski`.
+
+The next step is to actually perform the hierarchical clustering, which means that at this point we should decide which linkage method we want to use. We can try all kinds of linkage methods and later decide on which one performed better. Here we will proceed with `average` linkage method (i.e. UPGMA); other methods include `ward.D`, `ward.D2`, `single`, `complete`, `mcquitty` (= WPGMA), `median` (= WPGMC) and `centroid` (= UPGMC).
+
+```r
+hclust_avg <- hclust(dist_mat, method = 'average')
+
+plot(hclust_avg)
+```
+
+![Hierarchical clustering (attempt 1)](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/hclust-fig1.png "Hierarchical clustering (attempt 1)")
+
+Notice how the dendrogram is built and every data point finally merges into a single cluster with the height(distance) shown on the y-axis.
+
+Next, we can cut the dendrogram in order to create the desired number of clusters. In our case, we might want to check whether our two groups (`M` and `B`) can be identified as sub-trees of our clustering - so we'll set `k = 2` and then plot the result.
+
+```r
+cut_avg <- cutree(hclust_avg, k = 2)
+
+plot(hclust_avg, labels = breastCancerData$ID, hang = -1, cex = 0.2,
+     main = "Cluster dendrogram (k = 2)", xlab = "Breast Cancer ID", ylab = "Height")
+# k: Cut the dendrogram such that exactly k clusters are produced
+# border: Vector with border colors for the rectangles. Coild also be a number vector 1:2
+# which: A vector selecting the clusters around which a rectangle should be drawn (numbered from left to right)
+rect.hclust(hclust_avg , k = 2, border = c("red","green"), which = c(1, 2))
+# Draw a line at the height that the cut takes place
+abline(h = 18, col = 'red', lwd=3, lty=2)
+```
+![Hierarchical clustering (attempt 2)](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/hclust-fig2.png "Hierarchical clustering (attempt 2)")
+
+Now we can see the two clusters enclosed in two different colored boxes. We can also use the `color_branches()` function from the `dendextend` library to visualize our tree with different colored branches.
+
+```r
+library(dendextend)
+avg_dend_obj <- as.dendrogram(hclust_avg)
+# We can use either k (number of clusters), or clusters (and specify the cluster type)
+avg_col_dend <- color_branches(avg_dend_obj, k = 2, groupLabels=TRUE)
+plot(avg_col_dend, main = "Cluster dendrogram with color per cluster (k = 2)", xlab = "Breast Cancer ID", ylab = "Height")
+```
+
+![Hierarchical clustering (attempt 3)](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/hclust-fig3.png "Hierarchical clustering (attempt 3)")
+
+We can change the way branches are colored, to reflect the `Diagnosis` value:
+
+```r
+avg_col_dend <- color_branches(avg_dend_obj, clusters = breastCancerData$Diagnosis)
+plot(avg_col_dend, main = "Cluster dendrogram with Diagnosis color", xlab = "Breast Cancer ID", ylab = "Height")
+```
+
+![Hierarchical clustering (attempt 4)](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/hclust-fig4.png "Hierarchical clustering (attempt 4)")
+
+
+
+```r
+ggplot(as.data.frame(ppv_pca$x), aes(x=PC1, y=PC2, color=as.factor(cut_avg), shape = breastCancerData$Diagnosis)) +
+  geom_point( alpha = 0.6, size = 3) +
+  theme_minimal()+
+  theme(legend.position = "bottom") +
+  labs(title = "Hierarchical clustering (cut at k=2) against PCA", x = "PC1", y = "PC2", color = "Cluster", shape = "Diagnosis")
+```
+
+![Visualization of the Hierarchical clustering (cut at k=2) results against the first two PCs on the UCI Breast Cancer dataset](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/hclust-pc12-Visualization.png "Visualization of the Hierarchical clustering (cut at k=2) results against the first two PCs on the UCI Breast Cancer dataset")
+
+| **Exercises**  |   |
+|--------|----------|
+| 1 | The hierarchical clustering performed so far, only used two methods: `euclidean` and `average`. Try experimenting with different methods. Do the final results improve? |
+| 2 | Obviously the cut-off selection (k=2) was not optimal. Try using different cut-offs to ensure that the final clustering could provide some context to the original question. |
