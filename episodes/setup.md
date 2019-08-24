@@ -15,17 +15,7 @@ install.packages("caret")
 install.packages("devtools")
 install.packages("gmodels")
 install.packages("dendextend")
-
-
-install.packages("multcomp")
-install.packages("kernlab")
-install.packages("ddalpha")
-install.packages("glmnet", repos = "http://cran.us.r-project.org")
-install.packages("e1071")
-install.packages("MASS")
-install.packages("splines")
-install.packages("multcomp")
-
+install.packages("randomForest")
 
 ## To install needed Bioconductor packages:
 source("https://bioconductor.org/biocLite.R")
@@ -45,16 +35,8 @@ library(caret)
 library(gmodels)
 library(ggbiplot)
 library(dendextend)
+library(randomForest)
 
-
-
-library(kernlab)
-library(ddalpha)
-library(glmnet)
-library(MASS)       # ginv -- coefficient estimation
-library(splines)    # ns, bs -- spline curves
-library(multcomp)   # glht -- linear hypotheses
 library(edgeR)      # cpm, etc -- RNA-Seq normalization
 library(limma)      # lmFit, etc -- fitting many models
-
 ```

@@ -28,7 +28,7 @@ breastCancerData %>% head()
 
 If all goes well, we can see that our dataset contains 569 observations across 32 variables. This is what the first 6 lines look like:
 
-```r
+```
 # A tibble: 6 x 32
       ID Diagnosis Radius.Mean Texture.Mean Perimeter.Mean Area.Mean Smoothness.Mean
    <dbl> <chr>           <dbl>        <dbl>          <dbl>     <dbl>           <dbl>
@@ -75,7 +75,7 @@ breastCancerDataNoID %>% head()
 
 The output should like like this:
 
-```r
+```
 # A tibble: 6 x 31
   Diagnosis Radius.Mean Texture.Mean Perimeter.Mean Area.Mean Smoothness.Mean
   <fct>           <dbl>        <dbl>          <dbl>     <dbl>           <dbl>
@@ -126,7 +126,7 @@ breastCancerDataNoID[1:5] %>% summary()
 
 The summary should look like this:
 
-```r
+```
 Diagnosis  Radius.Mean      Texture.Mean   Perimeter.Mean     Area.Mean     
 B:357     Min.   : 6.981   Min.   : 9.71   Min.   : 43.79   Min.   : 143.5  
 M:212     1st Qu.:11.700   1st Qu.:16.17   1st Qu.: 75.17   1st Qu.: 420.3  
@@ -145,7 +145,7 @@ breastCancerDataNoID_tr[1:5] %>% summary()
 
 The summary now should look like this:
 
-```r
+```
 Diagnosis  Radius.Mean       Texture.Mean     Perimeter.Mean      Area.Mean      
 B:357     Min.   :-2.0279   Min.   :-2.2273   Min.   :-1.9828   Min.   :-1.4532  
 M:212     1st Qu.:-0.6888   1st Qu.:-0.7253   1st Qu.:-0.6913   1st Qu.:-0.6666  
@@ -200,7 +200,7 @@ summary(ppv_pca)
 
 The produced table, shows us the importance of each Principal Component; the standard deviation, the proportion of the variance that it captures, as well as the cumulative proportion of variance capture by the principal components until, and including this one.
 
-```r
+```
 Importance of components:
                           PC1    PC2     PC3     PC4     PC5     PC6     PC7     PC8    PC9
 Standard deviation     3.6444 2.3857 1.67867 1.40735 1.28403 1.09880 0.82172 0.69037 0.6457
@@ -236,7 +236,7 @@ str(ppv_pca)
 
 The output should look like this:
 
-```r
+```
 List of 5
  $ sdev    : num [1:30] 3.64 2.39 1.68 1.41 1.28 ...
  $ rotation: num [1:30, 1:30] -0.219 -0.104 -0.228 -0.221 -0.143 ...
@@ -314,7 +314,7 @@ str(km.out)
 
 The output will be:
 
-```r
+```
 List of 9
  $ cluster     : int [1:569] 2 2 2 1 2 1 2 1 1 1 ...
  $ centers     : num [1:2, 1:30] 12.6 19.4 18.6 21.7 81.1 ...
@@ -363,7 +363,7 @@ CrossTable(breastCancerData$Diagnosis, km.out$cluster)
 
 The output should look like this:
 
-```r
+```
 Cell Contents
 |-------------------------|
 |                       N |
@@ -418,7 +418,7 @@ We can try for a single `k` (e.g. 2), and see the value:
 kmean_withinss(2)
 ```
 
-```r
+```
 [1] 77943100
 ```
 
@@ -535,8 +535,6 @@ plot(avg_col_dend, main = "Cluster dendrogram with Diagnosis color", xlab = "Bre
 ```
 
 ![Hierarchical clustering (attempt 4)](https://raw.githubusercontent.com/fpsom/IntroToMachineLearning/gh-pages/static/images/hclust-fig4.png "Hierarchical clustering (attempt 4)")
-
-
 
 ```r
 ggplot(as.data.frame(ppv_pca$x), aes(x=PC1, y=PC2, color=as.factor(cut_avg), shape = breastCancerData$Diagnosis)) +
