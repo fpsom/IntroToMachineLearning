@@ -18,7 +18,9 @@ install.packages("dendextend")
 install.packages("randomForest")
 
 ## To install needed Bioconductor packages:
-source("https://bioconductor.org/biocLite.R")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install()
 BiocManager::install(c("limma", "edgeR"))
 
 # To install libraries from GitHub source
