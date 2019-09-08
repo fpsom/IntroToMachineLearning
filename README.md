@@ -62,6 +62,12 @@ _Maximum participants_: 30
 | 15:00 - 16:30	| **Supervised Learning** <br /><br /> **_Classification_**. <br /> - How could supervised learning be used to analyze omics data. <br /> **_Regression_**. <br /> - What if the target variable is numerical rather than categorical? <br /> [_Link to material_](episodes/04-supervised-learning.md) |
 | 16:30	| Closing, discussion and resource sharing|
 
+## Other examples
+
+If you finish all the exercices and wish to practice on more examples, here are a couple of good examples to help you get more familiar with the different ML techniques and packages.
+1. [RNASeq Analysis in R](https://combine-australia.github.io/RNAseq-R/06-rnaseq-day1.html)
+2. [Use the Iris R built-in data set](https://github.com/fpsom/CODATA-RDA-Advanced-Bioinformatics-2019/blob/master/3.Day3.md)to run clustering and also some supervised classification and compare results obtained by different methods.
+
 ## Sources / References
 
 The material in the workshop has been based on the following resources:
