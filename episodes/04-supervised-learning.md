@@ -400,5 +400,4 @@ abline(a = 0, b = 1)
 
 | **Exercises**  |   |
 |--------|----------|
-| 1 | ToDo |
-| 2 | ToDo |
+| 1 | Try working with additional columns as targets for the regression. |
