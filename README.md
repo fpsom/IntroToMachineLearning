@@ -1,4 +1,4 @@
-[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3381145.svg)](https://zenodo.org/record/3381145)
+[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3403768.svg)](https://zenodo.org/record/3403768)
 
 <div class="sponsor-logos">
   <a href="https://www.elixir-europe.org/" title="ELIXIR">
@@ -99,4 +99,4 @@ This material is made available under the [Creative Commons Attribution 4.0 Inte
 
 ## Citation
 
-_to be added_
+Amel Ghouila, & Fotis E. Psomopoulos. (2019, September 9). Introduction to Machine Learning: Opportunities for advancing omics data analysis (Version v1.0.0). Zenodo. http://doi.org/10.5281/zenodo.3403768
